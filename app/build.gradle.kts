@@ -42,15 +42,15 @@ android {
 dependencies {
 
     //Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.6.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.6.0")
-    implementation ("com.google.code.gson:gson:2.8.5")
+    implementation(libs.retrofit)
+    implementation (libs.converter.gson)
+    implementation (libs.gson)
     // Coil
-    implementation("io.coil-kt:coil-compose:2.4.0")
+    implementation(libs.coil.compose)
     // navigation
-    implementation ("androidx.navigation:navigation-compose:2.8.3")
+    implementation (libs.androidx.navigation.compose)
     //MockWebserver
-    androidTestImplementation("com.squareup.okhttp3:mockwebserver:4.9.1")
+    androidTestImplementation(libs.mockwebserver)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
