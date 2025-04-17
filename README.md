@@ -5,7 +5,10 @@
 [![Coil](https://img.shields.io/badge/Coil-2.5.0-red.svg?logo=coil)](https://coil-kt.github.io/coil/)  
 [![Retrofit](https://img.shields.io/badge/Retrofit-2.11.0-orange?logo=square)](https://square.github.io/retrofit/)  
 
-<img src="screenshots/list.png" width="280"/> <img src="screenshots/detail.png" width="280"/>
+<div align="center">
+  <img src="screenshots/list.png" width="280"/>
+  <img src="screenshots/detail.png" width="280"/>
+</div>
 
 ## Features ✨  
 - **100% Kotlin 2.0.0** with modern language features  
