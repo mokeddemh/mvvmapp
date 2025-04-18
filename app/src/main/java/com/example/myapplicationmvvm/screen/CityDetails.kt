@@ -53,13 +53,7 @@ fun CityDetails(city: City) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = city.name, fontSize = 16.sp, fontWeight = FontWeight.Bold)
-
-        AsyncImage(
-            model = city.imageUrl,
-            contentDescription = null,
-            modifier = Modifier.fillMaxWidth().height(150.dp),
-            contentScale = ContentScale.Crop
-        )
+        CachedImage(city.imageUrl)
         Spacer(modifier = Modifier.height(16.dp))
         Text(text = city.description ?: "", fontSize = 16.sp, fontWeight = FontWeight.W300)
 

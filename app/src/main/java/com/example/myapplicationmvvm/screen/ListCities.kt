@@ -2,7 +2,9 @@ package com.example.myapplicationmvvm.screen
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -66,12 +68,14 @@ fun CitiesList(data: List<City>, navController: NavHostController) {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(text = it.name, fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                    AsyncImage(
+                    CachedImage(it.imageUrl,
+                        modifier = Modifier.fillMaxWidth().height(200.dp))
+                    /*AsyncImage(
                         model = it.imageUrl,
                         contentDescription = null,
                         modifier = Modifier.fillMaxWidth(),
                         contentScale = ContentScale.Crop
-                    )
+                    )*/
                 }
             }
         }
