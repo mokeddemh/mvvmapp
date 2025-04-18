@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -27,7 +28,7 @@ class MainActivity : ComponentActivity() {
             MyApplicationMVVMTheme  {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     val navController = rememberNavController()
-                    MainApp(navController)
+                    MainApp(navController,Modifier.padding(innerPadding))
                 }
             }
         }
@@ -35,9 +36,9 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MainApp(navController: NavHostController){
+fun MainApp(navController: NavHostController,modifier: Modifier){
     val cityModel = CityModel(RepositoryHolder.cityRepository)
-    NavHost (navController = navController, startDestination = Destination.ListScreen.route) {
+    NavHost (navController = navController, startDestination = Destination.ListScreen.route, modifier = modifier) {
         composable(Destination.ListScreen.route) {
             DisplayCities(cityModel,navController)
         }
