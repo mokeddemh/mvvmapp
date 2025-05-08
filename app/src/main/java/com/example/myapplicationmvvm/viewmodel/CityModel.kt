@@ -5,12 +5,15 @@ import androidx.lifecycle.viewModelScope
 import com.example.myapplicationmvvm.entity.City
 import com.example.myapplicationmvvm.repository.CityRepository
 import com.example.myapplicationmvvm.state.UiState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CityModel(private val repository: CityRepository):ViewModel() {
+@HiltViewModel
+class CityModel @Inject constructor(private val repository: CityRepository):ViewModel() {
 
     private val _citiesState = MutableStateFlow<UiState<List<City>>>(UiState.Loading)
     // read only

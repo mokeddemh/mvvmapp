@@ -2,7 +2,6 @@ package com.example.myapplicationmvvm
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.myapplicationmvvm.entity.City
-import com.example.myapplicationmvvm.repository.CityRepository
 import com.example.myapplicationmvvm.service.Endpoint
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockResponse

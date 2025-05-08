@@ -14,12 +14,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.myapplicationmvvm.navigation.Destination
-import com.example.myapplicationmvvm.repository.RepositoryHolder
 import com.example.myapplicationmvvm.screen.DisplayCities
 import com.example.myapplicationmvvm.screen.DisplayDetails
 import com.example.myapplicationmvvm.ui.theme.MyApplicationMVVMTheme
-import com.example.myapplicationmvvm.viewmodel.CityModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,15 +37,14 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainApp(navController: NavHostController,modifier: Modifier){
-    val cityModel = CityModel(RepositoryHolder.cityRepository)
     NavHost (navController = navController, startDestination = Destination.ListScreen.route, modifier = modifier) {
         composable(Destination.ListScreen.route) {
-            DisplayCities(cityModel,navController)
+            DisplayCities(navController = navController)
         }
 
         composable(Destination.DetailScreen.route) { navBackStackEntry ->
             val id = navBackStackEntry.arguments?.getString("id")?.toInt()
-            DisplayDetails(cityModel,id!!)
+            DisplayDetails(id = id!!)
         }
     }
 }

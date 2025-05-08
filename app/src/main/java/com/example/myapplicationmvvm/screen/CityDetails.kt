@@ -12,20 +12,19 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
-import com.example.myapplicationmvvm.entity.City
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.myapplicationmvvm.ERROR_MESSAGE
+import com.example.myapplicationmvvm.entity.City
 import com.example.myapplicationmvvm.state.UiState
 import com.example.myapplicationmvvm.util.makeToast
 import com.example.myapplicationmvvm.viewmodel.CityModel
 
 @Composable
-fun DisplayDetails(cityModel: CityModel, id: Int) {
+fun DisplayDetails(cityModel: CityModel = hiltViewModel(), id: Int) {
     val context = LocalContext.current
     val state  by cityModel.cityState.collectAsState()
     LaunchedEffect(true) {

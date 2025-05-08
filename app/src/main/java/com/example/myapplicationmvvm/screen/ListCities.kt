@@ -2,7 +2,6 @@ package com.example.myapplicationmvvm.screen
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -17,15 +16,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import coil.compose.AsyncImage
-import com.example.myapplicationmvvm.entity.City
 import com.example.myapplicationmvvm.ERROR_MESSAGE
+import com.example.myapplicationmvvm.entity.City
 import com.example.myapplicationmvvm.navigation.Destination
 import com.example.myapplicationmvvm.state.UiState
 import com.example.myapplicationmvvm.util.makeToast
@@ -33,7 +31,7 @@ import com.example.myapplicationmvvm.viewmodel.CityModel
 
 
 @Composable
-fun DisplayCities(cityModel: CityModel, navController: NavHostController) {
+fun DisplayCities(cityModel: CityModel = hiltViewModel(), navController: NavHostController) {
     val state  by cityModel.citiesState.collectAsState()
     val context = LocalContext.current
     when (state) {
