@@ -15,12 +15,14 @@ import javax.inject.Inject
 @HiltViewModel
 class CityModel @Inject constructor(private val repository: CityRepository):ViewModel() {
 
-    private val _citiesState = MutableStateFlow<UiState<List<City>>>(UiState.Loading)
     // read only
+    private val _citiesState = MutableStateFlow<UiState<List<City>>>(UiState.Loading)
+
     val citiesState: StateFlow<UiState<List<City>>> = _citiesState.asStateFlow()
 
-    private val _cityState = MutableStateFlow<UiState<City>>(UiState.Loading)
     // read only
+    private val _cityState = MutableStateFlow<UiState<City>>(UiState.Loading)
+
     val cityState: StateFlow<UiState<City>> = _cityState
 
     init {

@@ -14,38 +14,24 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+
     @Singleton
     @Provides
-    fun provideHttpClient(): OkHttpClient {
-        return OkHttpClient
-            .Builder()
+    fun provideEndpoint(): Endpoint {
+        // Create OkHttpClient inline
+        val okHttpClient = OkHttpClient.Builder()
             .readTimeout(15, TimeUnit.SECONDS)
             .connectTimeout(15, TimeUnit.SECONDS)
             .build()
-    }
 
-    @Singleton
-    @Provides
-    fun provideConverterFactory(): GsonConverterFactory =
-        GsonConverterFactory.create()
-
-
-    @Singleton
-    @Provides
-    fun provideRetrofit(
-        okHttpClient: OkHttpClient,
-        gsonConverterFactory: GsonConverterFactory
-    ): Retrofit {
-        return Retrofit.Builder()
+        // Create Retrofit inline
+        val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)
-            .addConverterFactory(gsonConverterFactory)
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
+
+        // Create and return Endpoint
+        return retrofit.create(Endpoint::class.java)
     }
-
-
-    @Singleton
-    @Provides
-    fun provideCurrencyService(retrofit: Retrofit): Endpoint =
-        retrofit.create(Endpoint::class.java)
 }

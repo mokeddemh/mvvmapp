@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MainApp(navController: NavHostController,modifier: Modifier){
+fun  MainApp(navController: NavHostController,modifier: Modifier){
     NavHost (navController = navController, startDestination = Destination.ListScreen.route, modifier = modifier) {
         composable(Destination.ListScreen.route) {
             DisplayCities(navController = navController)
