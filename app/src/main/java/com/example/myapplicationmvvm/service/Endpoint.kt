@@ -6,10 +6,10 @@ import retrofit2.http.Path
 
 interface Endpoint {
 
-    @GET("getlistcities")
+    @GET("api/cities")
     suspend fun getCities(): List<City>
 
-    @GET("getcity/{id}")
+    @GET("api/city/{id}")
     suspend fun getCity(@Path("id") id: Int): City
 
 }

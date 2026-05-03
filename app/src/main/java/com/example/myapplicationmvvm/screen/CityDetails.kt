@@ -17,6 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.myapplicationmvvm.BASE_URL
 import com.example.myapplicationmvvm.ERROR_MESSAGE
 import com.example.myapplicationmvvm.entity.City
 import com.example.myapplicationmvvm.state.UiState
@@ -52,7 +53,7 @@ fun CityDetails(city: City) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = city.name, fontSize = 16.sp, fontWeight = FontWeight.Bold)
-        CachedImage(city.imageUrl)
+        CachedImage(BASE_URL+city.imageUrl)
         Spacer(modifier = Modifier.height(16.dp))
         Text(text = city.description ?: "", fontSize = 16.sp, fontWeight = FontWeight.W300)
 

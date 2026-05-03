@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import com.example.myapplicationmvvm.BASE_URL
 import com.example.myapplicationmvvm.ERROR_MESSAGE
 import com.example.myapplicationmvvm.entity.City
 import com.example.myapplicationmvvm.navigation.Destination
@@ -66,7 +67,7 @@ fun CitiesList(data: List<City>, navController: NavHostController) {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(text = it.name, fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                    CachedImage(it.imageUrl,
+                    CachedImage(BASE_URL+it.imageUrl,
                         modifier = Modifier.fillMaxWidth().height(200.dp))
                     /*AsyncImage(
                         model = it.imageUrl,
