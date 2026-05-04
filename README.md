@@ -4,7 +4,7 @@
 [![Compose](https://img.shields.io/badge/Jetpack%20Compose-1.7.0-brightgreen?logo=jetpackcompose)](https://developer.android.com/jetpack/compose)  
 [![Coil](https://img.shields.io/badge/Coil-2.5.0-red.svg?logo=coil)](https://coil-kt.github.io/coil/)  
 [![Retrofit](https://img.shields.io/badge/Retrofit-2.11.0-orange?logo=square)](https://square.github.io/retrofit/)  
-[![Hilt](https://img.shields.io/badge/Hilt-2.51.1-blue?logo=dagger)](https://dagger.dev/hilt/)
+[![Hilt](https://img.shields.io/badge/Hilt-2.56.1-blue?logo=dagger)](https://dagger.dev/hilt/)
 
 <div align="center">
   <img src="screenshots/list.png" width="280"/>
